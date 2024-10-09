@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  nextjs:
+    image: node:18
+    working_dir: /app/nextjs
+    volumes:
+      - ./nextjs:/app/nextjs
+    ports:
+      - '3000:3000'
+    command: sh -c "npm install && npm run dev"
+    environment:
+      NEXT_PUBLIC_API_URL: http://symfony:8000/api/appointments  # URL apontando para o serviço Symfony na mesma rede
+    networks:
+      shared_network:
+        ipv4_address: 172.30.0.2  # IP fixo para o Next.js
+
+networks:
+  shared_network:
+    external: true  # Rede externa compartilhada com o outro docker-compose

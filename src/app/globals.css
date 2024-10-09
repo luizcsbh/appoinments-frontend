@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+body.light {
+  background-color: #ffffff; /* Fundo branco para modo claro */
+  color: #000000; /* Texto preto para modo claro */
+}
+
+body.dark {
+  background-color: #343a40; /* Fundo escuro para modo escuro */
+  color: #ffffff; /* Texto branco para modo escuro */
+}
+
+/* Ajustes para os componentes de bootstrap */
+.list-group-item {
+  background-color: transparent; /* Fundo transparente para itens da lista */
+}
+
+.modal-content {
+  background-color: inherit; /* Permite que o modal herde o fundo do body */
+}
+
+.modal-header, .modal-footer {
+  border: none; /* Remove as bordas do modal */
+}
